@@ -7,11 +7,11 @@ pipeline {
     
     stages {
     	 
-	   stage ('Clone') {
-            steps {
-                git branch: 'master', url: "https://github.com/zakaria2905/lab-7-1.git"
-            }
-	    }
+	//    stage ('Clone') {
+    //         steps {
+    //             git branch: 'master', url: "https://github.com/zakaria2905/lab-7-1.git"
+    //         }
+	//     }
 	 
 	   stage('Build & Unit test'){
 		  steps {
