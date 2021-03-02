@@ -9,13 +9,13 @@ pipeline {
     	 
 	   stage ('Clone') {
             steps {
-                git branch: 'master', url: "https://gitlab.com/mromdhani/07-jenkins-maven-plugin-01-unit-and-integration-tests.git"
+                git branch: 'master', url: "https://github.com/zakaria2905/lab-7-1.git"
             }
 	    }
 	 
 	   stage('Build & Unit test'){
 		  steps {
-				bat 'mvn clean verify -DskipITs=true';
+				sh 'mvn clean verify -DskipITs=true';
 		      	junit '**/target/surefire-reports/TEST-*.xml'
 		      	archiveArtifacts  'target/*.jar'
 
@@ -24,7 +24,7 @@ pipeline {
 	
 	  stage ('Integration Test'){
 	      steps {
-    			bat  'mvn clean verify -Dsurefire.skip=true';
+    			sh  'mvn clean verify -Dsurefire.skip=true';
 				junit '**/target/failsafe-reports/TEST-*.xml'
       			archiveArtifacts  'target/*.jar'
       		}
